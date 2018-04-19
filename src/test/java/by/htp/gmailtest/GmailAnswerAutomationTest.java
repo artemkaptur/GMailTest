@@ -15,8 +15,8 @@ import by.htp.gmailtest.steps.Steps;
  */
 public class GmailAnswerAutomationTest {
 	private Steps steps;
-	private final String LOGIN = "";
-	private final String PASSWORD = "";
+	private final String LOGIN = "tomstellmach17@gmail.com";
+	private final String PASSWORD = "tom060812stellmach";
 
 	@BeforeMethod(description = "Init browser")
 	public void setUp() {
@@ -25,14 +25,13 @@ public class GmailAnswerAutomationTest {
 	}
 
 	@Test(description = "Answer on last unreaded letter")
-	public void gmailAnswerTest() throws InterruptedException {
+	public void gmailAnswerTest() {
 		steps.login(LOGIN, PASSWORD);
-		steps.chooseLastUnreadedLetter();
-		// steps.chooseSendedLetters();
+		steps.answerIfLetterIs(LOGIN);
 	}
 
 	@AfterMethod(description = "Stop Browser")
 	public void stopBrowser() {
-		// steps.closeDriver();
+		steps.closeDriver();
 	}
 }

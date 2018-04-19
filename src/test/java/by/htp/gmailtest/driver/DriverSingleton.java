@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 /**
  * @author Артем
@@ -21,15 +22,18 @@ public class DriverSingleton {
 	private static final String WEBDRIVER_CHROMDRIVER_EXE_PATH = "C:\\MYPROGRAMS\\DRIVERS\\chromedriver.exe";
 
 	private DriverSingleton() {
-	};
+	}
 
 	public static WebDriver getDriver() {
 		if (null == driver) {
 			System.setProperty(WEBDRIVER_CHROME_DRIVER, WEBDRIVER_CHROMDRIVER_EXE_PATH);
-			driver = new ChromeDriver();
+			ChromeOptions opt = new ChromeOptions();
+			opt.addArguments("--no-sandbox");
+			driver = new ChromeDriver(opt);
 			driver.manage().timeouts().pageLoadTimeout(7, TimeUnit.SECONDS);
 			driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
+
 			logger.info("Browser started");
 		}
 
