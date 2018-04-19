@@ -3,6 +3,8 @@
  */
 package by.htp.gmailtest;
 
+import static org.testng.Assert.assertEquals;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -27,7 +29,7 @@ public class GmailAnswerAutomationTest {
 	@Test(description = "Answer on last unreaded letter")
 	public void gmailAnswerTest() {
 		steps.login(LOGIN, PASSWORD);
-		steps.answerIfLetterIs(LOGIN);
+		assertEquals(steps.answerIfLetterIs(LOGIN), "positive");
 	}
 
 	@AfterMethod(description = "Stop Browser")
