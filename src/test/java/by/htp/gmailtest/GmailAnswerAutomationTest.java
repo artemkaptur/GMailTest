@@ -15,8 +15,8 @@ import by.htp.gmailtest.steps.Steps;
  */
 public class GmailAnswerAutomationTest {
 	private Steps steps;
-	private final String LOGIN = "tomstellmach17@gmail.com";
-	private final String PASSWORD = "tom060812stellmach";
+	private final String LOGIN = "testacc@gmail.com";
+	private final String PASSWORD = "pa$$w0rd";
 
 	@BeforeMethod(description = "Init browser")
 	public void setUp() {
